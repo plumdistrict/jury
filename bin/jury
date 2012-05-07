@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'jury/command_line_interface'
+Jury::CommandLineInterface.new.main([$0]+ARGV)
+

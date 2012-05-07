@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = "jury"
-  s.version       = "0.0.0a1"
+  s.version       = "0.0.1"
   s.date          = "2012-05-07"
   s.summary       = "A minimalist acceptance testing framework using page object pattern."
   s.description   = <<EOSTR
@@ -10,7 +10,9 @@ objects in a Ruby/Capybara/RSpec environment.
 EOSTR
   s.authors       = ["Samuel A. Falvo II"]
   s.email         = 'kc5tja@arrl.net'
-  s.files         = ['lib/jury.rb']
+  s.files         = Dir['lib/*.rb'] + Dir['lib/**/*.rb'] + Dir['bin/*']
+  s.bindir        = 'bin'
+  s.executables   = ['jury']
   s.homepage      = "http://github.com/plumdistrict/jury"
 end
 
