@@ -1,3 +1,5 @@
+require 'fileutils'
+
 require 'jury/tchk'
 
 
@@ -8,8 +10,12 @@ module Jury
   class CommandLineInterface
     include Jury::Tchk
 
-    def create_filesystem   # BB(4)
-      puts "#create_filesystem invoked"
+    def create_filesystem   # CB(2), BB(4)
+      current_directory = Dir.pwd
+      template_directory = File.join(File.dirname(__FILE__), '..', '..', 'template')
+      # PRECONDITION -- current_directory not inside/under template_directory
+      set_of_files = Dir.glob("*")
+      FileUtils.cp_r set_of_files, current_directory
     end
 
     def show_help_message   # BB(3,1), BB(3,3)
