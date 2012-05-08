@@ -16,6 +16,13 @@ module Jury
       template_directory = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'template'))
       set_of_files = Dir.glob(File.join(template_directory, "*"))
       FileUtils.cp_r set_of_files, current_directory
+
+      # The above copy will not create empty directories, it seems.  Either that,
+      # or gem metadata refuses to accept that an empty template/spec directory
+      # holds value to me.  To work around this problem, we will need to create
+      # this directory manually if it doesn't already exist.
+      spec_directory = File.join(current_directory, "spec")
+      FileUtils.mkdir(spec_directory) if !File.directory?(spec_directory)
     end
 
     def show_help_message   # BB(3,1), BB(3,3)

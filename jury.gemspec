@@ -10,7 +10,7 @@ objects in a Ruby/Capybara/RSpec environment.
 EOSTR
   s.authors       = ["Samuel A. Falvo II"]
   s.email         = 'kc5tja@arrl.net'
-  s.files         = Dir['lib/*.rb'] + Dir['lib/**/*.rb'] + Dir['bin/*']
+  s.files         = Dir['lib/*.rb'] + Dir['lib/**/*.rb'] + Dir['bin/*'] + Dir['template/**/*']
   s.bindir        = 'bin'
   s.executables   = ['jury']
   s.homepage      = "http://github.com/plumdistrict/jury"
