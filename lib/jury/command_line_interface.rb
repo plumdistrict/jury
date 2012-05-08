@@ -1,7 +1,7 @@
 require 'fileutils'
-
 require 'jury/tchk'
 
+require 'pp'
 
 $VALID_COMMANDS = %w[help init]
 
@@ -11,10 +11,10 @@ module Jury
     include Jury::Tchk
 
     def create_filesystem   # CB(2), BB(4)
-      current_directory = Dir.pwd
-      template_directory = File.join(File.dirname(__FILE__), '..', '..', 'template')
       # PRECONDITION -- current_directory not inside/under template_directory
-      set_of_files = Dir.glob("*")
+      current_directory = Dir.pwd
+      template_directory = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'template'))
+      set_of_files = Dir.glob(File.join(template_directory, "*"))
       FileUtils.cp_r set_of_files, current_directory
     end
 

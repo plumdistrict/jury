@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = "jury"
-  s.version       = "0.0.1"
+  s.version       = "0.1.0"
   s.date          = "2012-05-07"
   s.summary       = "A minimalist acceptance testing framework using page object pattern."
   s.description   = <<EOSTR
